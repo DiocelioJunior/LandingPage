@@ -12,9 +12,13 @@
 
     <!-- Título da página -->
     <title>Os Guardiões</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- Inclusão do script JavaScript -->
+        <script src="script.js" defer></script>
 </head>
 
-<body>
+<body id="info">
     <!-- Cabeçalho da página -->
     <header>
         <!-- Logo -->
@@ -105,7 +109,7 @@
                 </p>
 
                 <!-- Link para baixar a ficha do personagem -->
-                <br><a href="#">Baixar ficha</a>
+                <br><a href="yuki.html" id="pdfLink"">Baixar ficha</a>
             </div>
 
             <!-- Imagem relacionada às habilidades do personagem -->
@@ -115,8 +119,15 @@
         </div>
     </section>
 
-    <!-- Inclusão do script JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
+
+    </script>
 </body>
 
 </html>

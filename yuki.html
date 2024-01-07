@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuki Kasai - A Assasina de Guardiões</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <div class="content_npc" id="content_npc">
+
+        <div class="info_npc">
+            <h1>Yuki Kasai</h1>
+            <p>Humano Médio(Humano Modificado)</p>
+        </div>
+
+        <div class="status_npc">
+            <p><span class="material-symbols-outlined">
+                    shield
+                </span><span>Classe de Armadura: </span>18</p>
+            <p><span class="material-symbols-outlined">
+                    favorite
+                </span><span>Pontos de Vida: </span>168(18d8 + 72)</p>
+            <p><span class="material-symbols-outlined">
+                    speed
+                </span><span>Movimentação: </span>9 Metros</p>
+        </div>
+
+        <h4>Atributos</h4>
+        <div class="attributes_npc">
+            <div class="attribute"><span>Força</span>16</div>
+            <div class="attribute"><span>Destreza</span>20</div>
+            <div class="attribute"><span>Constituição</span>18</div>
+            <div class="attribute"><span>Inteligência</span>15</div>
+            <div class="attribute"><span>Sabedoria</span>14</div>
+            <div class="attribute"><span>Carisma</span>16</div>
+        </div>
+
+        <h4>Pericias</h4>
+        <div class="attributes_npc">
+            <div class="attribute"><span>Percepção</span>+ 8</div>
+            <div class="attribute"><span>Furtividade</span>+ 10</div>
+            <div class="attribute"><span>Intuição</span>+ 7</div>
+            <div class="attribute"><span>Acrobacia</span>+ 9</div>
+            <div class="attribute"><span>Investigação</span>+ 6</div>
+        </div>
+
+        <h4>Ações</h4>
+        <div class="actions_npc">
+            <p>Pistolas de Plasma (Precisão Letal):</p>
+            <ul>
+                <li><span>Ataque Rápido: </span> Dano 2d6 + Modificador de Destreza</li>
+                <li><span>Tiro Preciso: </span>Dano 3d8 + Modificador de Destreza, requer uma rodada completa de
+                    preparação. Pode ser usado como ação bônus durante a rodada de preparação.</li>
+            </ul>
+
+            <p>Ataques Marciais (Estilo Fluido):</p>
+            <ul>
+                <li><span>Golpes Rápidos:</span> Dano 2d8 + Modificador de Força ou Destreza, escolha do jogador.</li>
+                <li><span>Chute Giratório:</span> Dano 3d6 + Modificador de Destreza, atinge todos os inimigos
+                    adjacentes.</li>
+            </ul>
+
+            <p>Teleportação Tática (Teleportação Dimensional):</p>
+            <ul>
+                <li><span>Aparição Surpresa:</span> Yuki se teletransporta para um local estratégico, ganhando vantagem
+                    nos próximos ataques.</li>
+                <li><span>Retirada Estratégica:</span> Yuki se teletransporta para uma distância segura, evitando
+                    ataques diretos.</li>
+            </ul>
+        </div>
+    </div>
+
+        <div class="btnPdf">
+            <button id="pdfButton">Baixar Ficha (PDF)</button>
+        </div>
+
+        <script>
+            const pdfButton = document.getElementById('pdfButton');
+
+            pdfButton.addEventListener('click', () => {
+                const content = document.getElementById('content_npc');
+
+                // Configuration for the final file
+                const options = {
+                    filename: "YukiKasai.pdf",
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: "mm", format: "a4", orientation: 'portrait' }
+                };
+
+                // Download PDF
+                html2pdf().set(options).from(content).save();
+            });
+        </script>
+</body>
+
+</html>
